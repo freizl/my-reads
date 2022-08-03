@@ -1,5 +1,6 @@
 module Main where
 
+import Control.Monad
 import Data.ByteString qualified as BS
 import Data.ByteString.Char8 qualified as B8
 import Data.String (fromString)
@@ -10,6 +11,7 @@ import Data.Text.IO qualified as T
 import Data.Tree.Ext
 import Network.HTTP.Simple
 import System.Environment
+import System.Exit
 import Text.HTML.Parser
 import Text.HTML.Tree
 import Text.HTML.Utils
@@ -24,6 +26,13 @@ main = do
   let allTokens = parseRespToTokens $ bsToText respBS
   let booklistBlock = getBookListBlock allTokens
 
+  when
+    (null booklistBlock)
+    ( do
+        putStrLn "unable to parse book list from this response"
+        print respBS
+        exitFailure
+    )
   case tokensToForest booklistBlock of
     Left err -> print err
     Right fs -> pPrint (drawTree $ head fs) -- expects the forest has size 1
@@ -48,14 +57,18 @@ toDoubanSubPath Read = "collect"
 
 type Url = String
 
+type UserCallSign = String
+
 baseUrl :: Url
-baseUrl = "https://book.douban.com/people/freizl/"
+baseUrl = "https://book.douban.com/people/"
 
 -- TODO: use Query type for query parameter given `start` require change for every request.
 --
 targetUrl :: BookCategory -> Url
 targetUrl bookCategory =
   baseUrl
+    <> ("freizl" :: UserCallSign)
+    <> "/"
     <> toDoubanSubPath bookCategory
     <> "?sort=time&start=0&filter=all&mode=list&tags_sort=count"
 
@@ -65,21 +78,27 @@ targetUrl bookCategory =
 
 ---
 
--- TODO: Got 403 forbidden.
--- is douban smart enough to block a bot?
--- or what's wrong in this function?
---
 crawlPage :: BookCategory -> IO BS.ByteString
 crawlPage bookCategory = do
   let url = targetUrl bookCategory
-  let request = addRequestHeader "User-Agent" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36" (fromString url)
-  print request
-  getResponseBody <$> httpBS (fromString url)
+  let request = addHeaders (fromString url)
+  resp <- httpBS request
+  -- print request
+  -- print resp
+  return (getResponseBody resp)
+
+addHeaders :: Request -> Request
+addHeaders =
+  addRequestHeader "Accept" "text/html"
+    . addRequestHeader "Accept-Encoding" "gzip"
+    . addRequestHeader "Connection" "keep-alive"
+    .
+    -- Cookie is critical otherwise 403
+    addRequestHeader "Cookie" "bid=JPTE-koPHbc;"
+    . addRequestHeader "User-Agent" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:103.0) Gecko/20100101 Firefox/103.0"
 
 readTestFile :: IO BS.ByteString
-readTestFile = do
-  let testFile = "./data/read-1.html"
-  BS.readFile testFile
+readTestFile = BS.readFile "./data/read-1.html"
 
 ---
 
