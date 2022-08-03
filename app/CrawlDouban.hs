@@ -26,13 +26,10 @@ main = do
   let allTokens = parseRespToTokens $ bsToText respBS
   let booklistBlock = getBookListBlock allTokens
 
-  when
-    (null booklistBlock)
-    ( do
-        putStrLn "unable to parse book list from this response"
-        print respBS
-        exitFailure
-    )
+  when (null booklistBlock) $ do
+    putStrLn "unable to parse book list from this response"
+    print respBS
+    exitFailure
   case tokensToForest booklistBlock of
     Left err -> print err
     Right fs -> pPrint (drawTree $ head fs) -- expects the forest has size 1
@@ -85,7 +82,7 @@ crawlPage bookCategory = do
   resp <- httpBS request
   -- print request
   -- print resp
-  return (getResponseBody resp)
+  pure (getResponseBody resp)
 
 addHeaders :: Request -> Request
 addHeaders =
