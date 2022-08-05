@@ -15,24 +15,38 @@ synopsis: my reading history and backlog
 -- license:
 
 -- The package author(s).
--- author:
+author: Haisheng Wu
 
 -- An email address to which users can send suggestions, bug reports, and patches.
--- maintainer:
+maintainer: Haisheng Wu
 
 -- A copyright notice.
 -- copyright:
 -- category:
-extra-source-files: CHANGELOG.md
+extra-source-files: CHANGELOG.org
+                    , README.org
+                    , TODO.org
 
-executable my-reads
-    main-is:          Main.hs
+-- TODO: what's the way to create share dependencies cross different lib/exe??
+--
+
+executable crawl-douban
+    main-is:          CrawlDouban.hs
 
     -- Modules included in this executable, other than Main.
-    -- other-modules:
+    other-modules:  Data.Tree.Ext
+                  , Text.HTML.Utils
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base ^>=4.16.0.0
+    build-depends:    base           ^>=4.14.0.0 && < 4.15,
+                      bytestring      >= 0.10.12 && < 0.11,
+                      containers      >= 0.6.5 && < 0.7,
+                      html-parse      >= 0.2.0 && < 0.3,
+                      text            >= 1.2.4 && < 1.3,
+                      http-conduit    >= 2.3.8 && < 2.4,
+                      pretty-simple   >= 4.1.1 && < 4.2
     hs-source-dirs:   app
     default-language: Haskell2010
+    default-extensions: OverloadedStrings
+                      , ImportQualifiedPost
