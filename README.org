@@ -1,3 +1,7 @@
-# POC my-reads
+* POC my-reads
 
 Capture by reading history
+
+* Notes
+
+1. ~cabal-fmt~ to format cabal

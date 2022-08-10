@@ -3,7 +3,7 @@ name:               my-reads
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
-synopsis: my reading history and backlog
+synopsis:           my reading history and backlog
 
 -- A longer description of the package.
 -- description:
@@ -15,38 +15,44 @@ synopsis: my reading history and backlog
 -- license:
 
 -- The package author(s).
-author: Haisheng Wu
+author:             Haisheng Wu
 
 -- An email address to which users can send suggestions, bug reports, and patches.
-maintainer: Haisheng Wu
+maintainer:         Haisheng Wu
 
 -- A copyright notice.
 -- copyright:
 -- category:
-extra-source-files: CHANGELOG.org
-                    , README.org
-                    , TODO.org
+extra-source-files:
+  CHANGELOG.org
+  README.org
+  TODO.org
 
--- TODO: what's the way to create share dependencies cross different lib/exe??
---
+-- https://cabal.readthedocs.io/en/latest/developing-packages.html#common-stanzas
+common shared-prop
+  build-depends:
+    , base           >=4.14.0.0 && <4.17
+    , bytestring     >=0.10.12  && <0.12
+    , containers     ^>=0.6.5
+    , html-parse     ^>=0.2.0
+    , http-conduit   ^>=2.3.8
+    , pretty-simple  ^>=4.1.1
+    , text           ^>=1.2.4
+
+  default-language:   Haskell2010
+  default-extensions:
+    ImportQualifiedPost
+    OverloadedStrings
 
 executable crawl-douban
-    main-is:          CrawlDouban.hs
+  import:         shared-prop
+  main-is:        CrawlDouban.hs
 
-    -- Modules included in this executable, other than Main.
-    other-modules:  Data.Tree.Ext
-                  , Text.HTML.Utils
+  -- Modules included in this executable, other than Main.
+  other-modules:
+    Data.Tree.Ext
+    Text.HTML.Utils
 
-    -- LANGUAGE extensions used by modules in this package.
-    -- other-extensions:
-    build-depends:    base            >=4.14.0.0 && < 4.17,
-                      bytestring      >= 0.10.12 && < 0.12,
-                      containers      >= 0.6.5 && < 0.7,
-                      html-parse      >= 0.2.0 && < 0.3,
-                      text            >= 1.2.4 && < 1.3,
-                      http-conduit    >= 2.3.8 && < 2.4,
-                      pretty-simple   >= 4.1.1 && < 4.2
-    hs-source-dirs:   app
-    default-language: Haskell2010
-    default-extensions: OverloadedStrings
-                      , ImportQualifiedPost
+  -- LANGUAGE extensions used by modules in this package.
+  -- other-extensions:
+  hs-source-dirs: app
