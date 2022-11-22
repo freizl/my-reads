@@ -1,5 +1,9 @@
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 module Main where
 
+import Control.Concurrent
 import Control.Monad
 import Data.ByteString qualified as BS
 import Data.ByteString.Char8 qualified as B8
@@ -10,6 +14,7 @@ import Data.Text.Encoding qualified as T
 import Data.Text.IO qualified as T
 import Data.Tree.Ext
 import Network.HTTP.Simple
+import System.Directory
 import System.Environment
 import System.Exit
 import Text.HTML.Parser
@@ -18,27 +23,57 @@ import Text.HTML.Utils
 import Text.Pretty.Simple
 
 main :: IO ()
-main = do
-  args <- getArgs
-  respBS <- case args of
-    ["test"] -> readTestFile
-    _ -> crawlPage Read
+main = processFile 7
+
+processFile :: PageNum -> IO ()
+processFile pnum = do
+  let fname = "./data/read-" <> show pnum <> ".html"
+  fexist <- doesFileExist fname
+  when fexist $ do
+    respBS <- BS.readFile fname
+    let allTokens = parseRespToTokens $ bsToText respBS
+    let booklistBlock = getBookListBlock allTokens
+
+    mapM_ print booklistBlock
+    when (null booklistBlock) $ do
+      putStrLn "unable to parse book list from this response"
+      print respBS
+      exitFailure
+    case tokensToForest booklistBlock of
+      Left err -> print err
+      Right fs -> pPrint (drawTree $ head fs) -- expects the forest has size 1
+      -- Right fs -> putStrLn ("done " <> show pnum) >> processFile (pnum + 1)
+
+
+downloadAll :: IO ()
+downloadAll = downloadReadHistory 1
+
+downloadReadHistory pnum = do
+  putStrLn ("Process page " <> show pnum)
+  respBS <- crawlPage Read pnum
   let allTokens = parseRespToTokens $ bsToText respBS
   let booklistBlock = getBookListBlock allTokens
-
-  when (null booklistBlock) $ do
-    putStrLn "unable to parse book list from this response"
-    print respBS
-    exitFailure
-  case tokensToForest booklistBlock of
-    Left err -> print err
-    Right fs -> pPrint (drawTree $ head fs) -- expects the forest has size 1
+  let filename = "./data/read-" <> show pnum <> ".html"
+  if isEndOfPagination booklistBlock
+    then pure ()
+    else
+      BS.writeFile filename respBS
+        >> putStrLn ("write to " <> filename)
+        >> threadDelay (2 * 10 ^ 6)
+        >> downloadReadHistory (pnum + 1)
 
 ---
 
 -- * Types
 
----
+data BookRead = BookRead
+  { title :: Text
+  , author :: Text
+  , readAt :: Text
+  , comments :: Text
+  }
+  deriving (Eq, Show)
+
 data BookCategory = WantToRead | CurrentlyReading | Read
 
 toDoubanSubPath :: BookCategory -> String
@@ -61,13 +96,16 @@ baseUrl = "https://book.douban.com/people/"
 
 -- TODO: use Query type for query parameter given `start` require change for every request.
 --
-targetUrl :: BookCategory -> Url
-targetUrl bookCategory =
+targetUrl :: BookCategory -> PageNum -> Url
+targetUrl bookCategory pnum =
   baseUrl
     <> ("freizl" :: UserCallSign)
     <> "/"
     <> toDoubanSubPath bookCategory
-    <> "?sort=time&start=0&filter=all&mode=list&tags_sort=count"
+    <> "?sort=time"
+    <> "&start="
+    ++ show ((unPageNum pnum - 1) * 30)
+      <> "&filter=all&mode=list&tags_sort=count"
 
 ---
 
@@ -75,9 +113,16 @@ targetUrl bookCategory =
 
 ---
 
-crawlPage :: BookCategory -> IO BS.ByteString
-crawlPage bookCategory = do
-  let url = targetUrl bookCategory
+newtype PageNum = PageNum {unPageNum :: Int}
+  deriving newtype (Show, Num)
+
+crawlPage ::
+  BookCategory ->
+  PageNum ->
+  IO BS.ByteString
+crawlPage bookCategory pnum = do
+  let url = targetUrl bookCategory pnum
+  print url
   let request = addHeaders (fromString url)
   resp <- httpBS request
   -- print request
@@ -93,9 +138,6 @@ addHeaders =
     -- Cookie is critical otherwise 403
     addRequestHeader "Cookie" "bid=JPTE-koPHbc;"
     . addRequestHeader "User-Agent" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:103.0) Gecko/20100101 Firefox/103.0"
-
-readTestFile :: IO BS.ByteString
-readTestFile = BS.readFile "./data/read-1.html"
 
 ---
 
@@ -123,6 +165,14 @@ isBookListItem _ = False
 isItemClass :: Attr -> Bool
 isItemClass (Attr "class" "item") = True
 isItemClass _ = False
+
+-- When response is like
+-- [TagOpen "ul" [Attr "class" "list-view"],ContentText "\n",TagClose "ul"]
+-- will imply end of pagination
+
+isEndOfPagination :: [Token] -> Bool
+isEndOfPagination [TagOpen "ul" _, _, TagClose "ul"] = True
+isEndOfPagination _ = False
 
 ---
 
