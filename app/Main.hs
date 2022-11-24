@@ -43,25 +43,25 @@ processFile :: PageNum -> [Either (Text, Tree Token) BookRead] -> IO ()
 processFile pnum results = do
   let fname = "./data/read-" <> show pnum <> ".html"
   fexist <- doesFileExist fname
-  if fexist then do
-    respBS <- BS.readFile fname
-    let allTokens = parseRespToTokens $ bsToText respBS
-    let booklistBlock = getBookListBlock allTokens
+  if fexist
+    then do
+      respBS <- BS.readFile fname
+      let allTokens = parseRespToTokens $ bsToText respBS
+      let booklistBlock = getBookListBlock allTokens
 
-    when (null booklistBlock) $ do
-      putStrLn "unable to parse book list from this response"
-      print respBS
-      exitFailure
-    case tokensToForest booklistBlock of
-      Left err -> print err
-      Right fs -> do
-        let t1 = head fs
-        let eBooks = map tokenLiToBookRead (filter (isBookListItem . rootLabel) $ subForest t1)
-        processFile (pnum + 1) (results ++ eBooks)
-  else
-    mapM_ pPrint (lefts results)
-    >>
-    encodeFile "./data/read.json" (rights results)
+      when (null booklistBlock) $ do
+        putStrLn "unable to parse book list from this response"
+        print respBS
+        exitFailure
+      case tokensToForest booklistBlock of
+        Left err -> print err
+        Right fs -> do
+          let t1 = head fs
+          let eBooks = map tokenLiToBookRead (filter (isBookListItem . rootLabel) $ subForest t1)
+          processFile (pnum + 1) (results ++ eBooks)
+    else
+      mapM_ pPrint (lefts results)
+        >> encodeFile "./data/read.json" (rights results)
 
 downloadAll :: IO ()
 downloadAll = downloadReadHistory 1
@@ -161,7 +161,27 @@ parseDateSection (x : _) =
                     _ -> Left "expect date token but got none"
                 )
 
-parseItemHide xs = pure ("xxx", "yyy")
+parseItemHide :: [Tree Token] -> Either Text (Text, Text)
+parseItemHide [] = Left "expect item hide node but got none"
+parseItemHide (x : _) =
+  let ys = subForest x
+   in (,)
+        <$> parseGridDate (filter (isGridDateNode . rootLabel) ys)
+        <*> Right (parseComments (filter (isCommentNode . rootLabel) ys))
+ where
+  parseGridDate :: [Tree Token] -> Either Text Text
+  parseGridDate [] = Left "expects grid-date but none"
+  parseGridDate (x : _) =
+    let introEl = (subForest x) !! 1
+     in case subForest introEl of
+          [Node (ContentText t) _] -> Right $ T.strip $ head $ T.splitOn "/" t
+          _ -> Left "no intro found"
+
+  parseComments :: [Tree Token] -> Text
+  parseComments [] = ""
+  parseComments (x : _) = case subForest x of
+    [Node (ContentText t) _] -> T.strip t
+    _ -> ""
 
 -- | parse string "rating5-t"
 parseRatingString :: Text -> Either Text Int
@@ -265,6 +285,14 @@ isBookDate _ = False
 isBookItemHide :: Token -> Bool
 isBookItemHide (TagOpen "div" attrs) = hasClassAttrs "hide" attrs
 isBookItemHide _ = False
+
+isCommentNode :: Token -> Bool
+isCommentNode (TagOpen "div" attrs) = hasClassAttrs "comment" attrs
+isCommentNode _ = False
+
+isGridDateNode :: Token -> Bool
+isGridDateNode (TagOpen "div" attrs) = hasClassAttrs "grid-date" attrs
+isGridDateNode _ = False
 
 hasClassAttrs :: Text -> [Attr] -> Bool
 hasClassAttrs className = (== 1) . length . filter (hasClass className)
