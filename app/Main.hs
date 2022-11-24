@@ -3,6 +3,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
+{-# LANGUAGE TypeApplications #-}
 
 module Main where
 
@@ -37,7 +38,20 @@ main = do
   case args of
     ["download"] -> downloadAll
     ["process"] -> processFile 1 []
+    ["org"] -> generateOrgFile
     _ -> error "Unsupported command"
+
+jsonFile :: FilePath
+jsonFile = "./data/read.json"
+
+orgFile = "./data/read.org"
+
+generateOrgFile :: IO ()
+generateOrgFile = do
+  eBookRead <- eitherDecodeFileStrict' @[BookRead] jsonFile
+  case eBookRead of
+    Left err -> print err
+    Right books -> T.writeFile orgFile $ T.unlines (map toOrgSection books)
 
 processFile :: PageNum -> [Either (Text, Tree Token) BookRead] -> IO ()
 processFile pnum results = do
@@ -61,7 +75,7 @@ processFile pnum results = do
           processFile (pnum + 1) (results ++ eBooks)
     else
       mapM_ pPrint (lefts results)
-        >> encodeFile "./data/read.json" (rights results)
+        >> encodeFile jsonFile (rights results)
 
 downloadAll :: IO ()
 downloadAll = downloadReadHistory 1
@@ -94,7 +108,23 @@ data BookRead = BookRead
   }
   deriving (Eq, Show, Generic)
 
+instance FromJSON BookRead
+
 instance ToJSON BookRead
+
+toOrgSection :: BookRead -> Text
+toOrgSection BookRead{..} =
+  T.unlines $
+    [ "** DONE "
+        <> title
+        <> " by "
+        <> author
+    , "CLOSED: ["
+        <> readAt
+        <> "]"
+    , "- " <> "[[" <> T.pack detailPage <> "][douban link]]"
+    ]
+      ++ (if T.null comments then [] else ["- " <> comments])
 
 data BookCategory = WantToRead | CurrentlyReading | Read
 
