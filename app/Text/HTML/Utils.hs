@@ -1,7 +1,7 @@
 -- |
 module Text.HTML.Utils where
 
-import Text.HTML.Parser
+import Text.HTML.Parser ( Token(TagClose, TagOpen) )
 
 getBody :: [Token] -> [Token]
 getBody ts =
@@ -10,9 +10,11 @@ getBody ts =
       rest = dropWhile (not . isBodyClose) withoutHeader
    in onlyBody ++ take 1 rest
 
+isBodyOpen :: Token -> Bool
 isBodyOpen (TagOpen "body" _) = True
 isBodyOpen _ = False
 
+isBodyClose :: Token -> Bool
 isBodyClose (TagClose "body") = True
 isBodyClose _ = False
 

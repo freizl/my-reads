@@ -49,5 +49,5 @@ downloadReadHistory pnum = do
     else
       BS.writeFile filename respBS
         >> putStrLn ("write to " <> filename)
-        >> threadDelay (2 * 10 ^ 6)
+        >> threadDelay (2 * 10 ^ ( 6 :: Int ))
         >> downloadReadHistory (pnum + 1)

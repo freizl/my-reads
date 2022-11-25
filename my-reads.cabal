@@ -49,9 +49,9 @@ common shared-prop
     RecordWildCards
     TupleSections
 
-executable crawl-douban
+executable douban
   import:         shared-prop
-  main-is:        Main.hs
+  main-is:        Douban.hs
 
   -- Modules included in this executable, other than Main.
   other-modules:

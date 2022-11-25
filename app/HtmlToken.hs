@@ -3,7 +3,6 @@
 module HtmlToken where
 
 import Text.HTML.Parser
-import Text.HTML.Tree
 import Text.HTML.Utils
 import Data.Text qualified as T
 import Data.Text (Text)

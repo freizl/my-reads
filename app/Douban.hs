@@ -5,7 +5,6 @@
 
 module Main where
 
-import HtmlToken
 import Control.Monad
 import Data.Aeson
 import Data.Bifunctor (first, second)
@@ -16,15 +15,16 @@ import Data.Text (Text)
 import Data.Text qualified as T
 import Data.Text.IO qualified as T
 import Data.Tree (Tree (..))
+import Download
+import HtmlToken
 import System.Directory
 import System.Environment
 import System.Exit
 import Text.HTML.Parser
 import Text.HTML.Tree
 import Text.Pretty.Simple
-import Download
-import Utils
 import Types
+import Utils
 
 main :: IO ()
 main = do
@@ -72,14 +72,14 @@ processFile pnum results = do
       mapM_ pPrint (lefts results)
         >> encodeFile jsonFile (rights results)
 
--- | Given following Tree Token and generate BookRead
---
--- @
--- li class="item"
---   div class="item-show"
---   div class="hide"
--- @
---
+{- | Given following Tree Token and generate BookRead
+
+ @
+ li class="item"
+   div class="item-show"
+   div class="hide"
+ @
+-}
 tokenLiToBookRead :: Tree Token -> Either (Text, Tree Token) BookRead
 tokenLiToBookRead tt
   | isBookListItem (rootLabel tt) = first (,tt) $ do
@@ -148,15 +148,15 @@ parseItemHide (x : _) =
  where
   parseGridDate :: [Tree Token] -> Either Text Text
   parseGridDate [] = Left "expects grid-date but none"
-  parseGridDate (x : _) =
-    let introEl = (subForest x) !! 1
+  parseGridDate (x1 : _) =
+    let introEl = (subForest x1) !! 1
      in case subForest introEl of
           [Node (ContentText t) _] -> Right $ T.strip $ head $ T.splitOn "/" t
           _ -> Left "no intro found"
 
   parseComments :: [Tree Token] -> Text
   parseComments [] = ""
-  parseComments (x : _) = case subForest x of
+  parseComments (x2 : _) = case subForest x2 of
     [Node (ContentText t) _] -> T.strip t
     _ -> ""
 
@@ -165,4 +165,3 @@ parseRatingString :: Text -> Either Text Int
 parseRatingString t = case (take 1 $ drop 6 $ T.unpack t) of
   [x] -> if isDigit x then Right (read [x]) else Left (T.pack $ "unable to parse char " <> [x])
   _ -> Left ("not known rating string " <> t)
-
