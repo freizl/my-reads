@@ -114,6 +114,7 @@ toOrgSection :: Book -> Text
 toOrgSection Book{..} =
     T.unlines $
         [ "** DONE "
+            <> (if myRating > 0 then "[#" <> (T.pack $ show myRating) <> "] " else "")
             <> title
             <> " by "
             <> author
@@ -136,7 +137,7 @@ main = do
     case ebooks of
         Left err -> print err
         Right (_, books) -> do
-            playWithBooks books
+            -- playWithBooks books
             generateOrgFile $
                 V.filter ((== Just "read") . exclusiveShelf) $
                     books

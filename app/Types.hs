@@ -1,15 +1,14 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE RecordWildCards #-}
--- |
 
 module Types where
 
 import Data.Aeson
-import GHC.Generics
 import Data.Text (Text)
 import Data.Text qualified as T
+import GHC.Generics
 
 newtype PageNum = PageNum {unPageNum :: Int}
   deriving newtype (Show, Num)
@@ -32,6 +31,10 @@ toOrgSection :: BookRead -> Text
 toOrgSection BookRead{..} =
   T.unlines $
     [ "** DONE "
+        <> ( case rating of
+              Just r -> "[#" <> (T.pack $ show r) <> "] "
+              Nothing -> ""
+           )
         <> title
         <> " by "
         <> author

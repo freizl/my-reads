@@ -44,8 +44,11 @@ common shared-prop
     TupleSections
 
   ghc-options:
-    -Wall -Wtabs -Wno-unused-do-bind -Wunused-packages -Wpartial-fields
-    -Wwarnings-deprecations
+    -Wall
+    -Wtabs
+    -Wunused-binds
+    -Wunused-do-bind
+    -Wpartial-fields
 
 executable goodread
   import:         shared-prop
