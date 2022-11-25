@@ -1,36 +1,30 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 
 module Main where
 
-import Control.Concurrent
+import HtmlToken
 import Control.Monad
 import Data.Aeson
 import Data.Bifunctor (first, second)
 import Data.ByteString qualified as BS
-import Data.ByteString.Char8 qualified as B8
 import Data.Char (isDigit)
 import Data.Either
-import Data.String (fromString)
 import Data.Text (Text)
 import Data.Text qualified as T
-import Data.Text.Encoding qualified as T
 import Data.Text.IO qualified as T
 import Data.Tree (Tree (..))
-import Data.Tree.Ext
-import GHC.Generics
-import Network.HTTP.Simple
 import System.Directory
 import System.Environment
 import System.Exit
 import Text.HTML.Parser
 import Text.HTML.Tree
-import Text.HTML.Utils
 import Text.Pretty.Simple
+import Download
+import Utils
+import Types
 
 main :: IO ()
 main = do
@@ -44,6 +38,7 @@ main = do
 jsonFile :: FilePath
 jsonFile = "./data/read.json"
 
+orgFile :: FilePath
 orgFile = "./data/read.org"
 
 generateOrgFile :: IO ()
@@ -77,62 +72,14 @@ processFile pnum results = do
       mapM_ pPrint (lefts results)
         >> encodeFile jsonFile (rights results)
 
-downloadAll :: IO ()
-downloadAll = downloadReadHistory 1
-
-downloadReadHistory pnum = do
-  putStrLn ("Process page " <> show pnum)
-  respBS <- crawlPage Read pnum
-  let allTokens = parseRespToTokens $ bsToText respBS
-  let booklistBlock = getBookListBlock allTokens
-  let filename = "./data/read-" <> show pnum <> ".html"
-  if isEndOfPagination booklistBlock
-    then pure ()
-    else
-      BS.writeFile filename respBS
-        >> putStrLn ("write to " <> filename)
-        >> threadDelay (2 * 10 ^ 6)
-        >> downloadReadHistory (pnum + 1)
-
----
-
--- * Types
-
-data BookRead = BookRead
-  { title :: Text
-  , author :: Text
-  , readAt :: Text
-  , comments :: Text
-  , detailPage :: Url
-  , rating :: Maybe Int
-  }
-  deriving (Eq, Show, Generic)
-
-instance FromJSON BookRead
-
-instance ToJSON BookRead
-
-toOrgSection :: BookRead -> Text
-toOrgSection BookRead{..} =
-  T.unlines $
-    [ "** DONE "
-        <> title
-        <> " by "
-        <> author
-    , "CLOSED: ["
-        <> readAt
-        <> "]"
-    , "- " <> "[[" <> T.pack detailPage <> "][douban link]]"
-    ]
-      ++ (if T.null comments then [] else ["- " <> comments])
-
-data BookCategory = WantToRead | CurrentlyReading | Read
-
-toDoubanSubPath :: BookCategory -> String
-toDoubanSubPath WantToRead = "with"
-toDoubanSubPath CurrentlyReading = "do"
-toDoubanSubPath Read = "collect"
-
+-- | Given following Tree Token and generate BookRead
+--
+-- @
+-- li class="item"
+--   div class="item-show"
+--   div class="hide"
+-- @
+--
 tokenLiToBookRead :: Tree Token -> Either (Text, Tree Token) BookRead
 tokenLiToBookRead tt
   | isBookListItem (rootLabel tt) = first (,tt) $ do
@@ -219,135 +166,3 @@ parseRatingString t = case (take 1 $ drop 6 $ T.unpack t) of
   [x] -> if isDigit x then Right (read [x]) else Left (T.pack $ "unable to parse char " <> [x])
   _ -> Left ("not known rating string " <> t)
 
----
-
--- * Douban
-
----
-
-type Url = String
-
-type UserCallSign = String
-
-baseUrl :: Url
-baseUrl = "https://book.douban.com/people/"
-
--- TODO: use Query type for query parameter given `start` require change for every request.
---
-targetUrl :: BookCategory -> PageNum -> Url
-targetUrl bookCategory pnum =
-  baseUrl
-    <> ("freizl" :: UserCallSign)
-    <> "/"
-    <> toDoubanSubPath bookCategory
-    <> "?sort=time"
-    <> "&start="
-    ++ show ((unPageNum pnum - 1) * 30)
-      <> "&filter=all&mode=list&tags_sort=count"
-
----
-
--- * HTTP Client
-
----
-
-newtype PageNum = PageNum {unPageNum :: Int}
-  deriving newtype (Show, Num)
-
-crawlPage ::
-  BookCategory ->
-  PageNum ->
-  IO BS.ByteString
-crawlPage bookCategory pnum = do
-  let url = targetUrl bookCategory pnum
-  print url
-  let request = addHeaders (fromString url)
-  resp <- httpBS request
-  -- print request
-  -- print resp
-  pure (getResponseBody resp)
-
-addHeaders :: Request -> Request
-addHeaders =
-  addRequestHeader "Accept" "text/html"
-    . addRequestHeader "Accept-Encoding" "gzip"
-    . addRequestHeader "Connection" "keep-alive"
-    .
-    -- Cookie is critical otherwise 403
-    addRequestHeader "Cookie" "bid=JPTE-koPHbc;"
-    . addRequestHeader "User-Agent" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:103.0) Gecko/20100101 Firefox/103.0"
-
----
-
--- * Deal with TML Tokens
-
----
-parseRespToTokens :: Text -> [Token]
-parseRespToTokens = parseTokens
-
-getBookListBlock :: [Token] -> [Token]
-getBookListBlock ts =
-  let as = dropWhile (not . isBookListBlockOpen) ts
-      bs1 = takeWhile (not . isUlClose) as
-      bs2 = dropWhile (not . isUlClose) as
-   in bs1 ++ take 1 bs2
-
-isBookListBlockOpen :: Token -> Bool
-isBookListBlockOpen (TagOpen "ul" [Attr "class" "list-view"]) = True
-isBookListBlockOpen _ = False
-
-isBookListItem :: Token -> Bool
-isBookListItem (TagOpen "li" xs) = hasClassAttrs "item" xs
-isBookListItem _ = False
-
-isBookItemShow :: Token -> Bool
-isBookItemShow (TagOpen "div" attrs) = hasClassAttrs "item-show" attrs
-isBookItemShow _ = False
-
-isBookTitle :: Token -> Bool
-isBookTitle (TagOpen "div" xs) = hasClassAttrs "title" xs
-isBookTitle _ = False
-
-isBookDate :: Token -> Bool
-isBookDate (TagOpen "div" xs) = hasClassAttrs "date" xs
-isBookDate _ = False
-
-isBookItemHide :: Token -> Bool
-isBookItemHide (TagOpen "div" attrs) = hasClassAttrs "hide" attrs
-isBookItemHide _ = False
-
-isCommentNode :: Token -> Bool
-isCommentNode (TagOpen "div" attrs) = hasClassAttrs "comment" attrs
-isCommentNode _ = False
-
-isGridDateNode :: Token -> Bool
-isGridDateNode (TagOpen "div" attrs) = hasClassAttrs "grid-date" attrs
-isGridDateNode _ = False
-
-hasClassAttrs :: Text -> [Attr] -> Bool
-hasClassAttrs className = (== 1) . length . filter (hasClass className)
-
-hasClass :: Text -> Attr -> Bool
-hasClass className (Attr "class" attrValue) = className `T.isInfixOf` attrValue
-hasClass _ _ = False
-
-{- | When response is like
-
- @
- [TagOpen "ul" [Attr "class" "list-view"],ContentText "\n",TagClose "ul"]
- @
-
- will imply end of pagination
--}
-isEndOfPagination :: [Token] -> Bool
-isEndOfPagination [TagOpen "ul" _, _, TagClose "ul"] = True
-isEndOfPagination _ = False
-
----
-
--- * dummy helpers
-
----
-
-bsToText :: BS.ByteString -> Text
-bsToText = T.decodeUtf8
