@@ -32,7 +32,7 @@ toOrgSection BookRead{..} =
   T.unlines $
     [ "** DONE "
         <> ( case rating of
-              Just r -> "[#" <> (T.pack $ show r) <> "] "
+              Just r -> "[#" <> T.pack (show r) <> "] "
               Nothing -> ""
            )
         <> title
@@ -43,7 +43,7 @@ toOrgSection BookRead{..} =
         <> "]"
     , "- " <> "[[" <> T.pack detailPage <> "][douban link]]"
     ]
-      ++ (if T.null comments then [] else ["- " <> comments])
+      ++ ["- " <> comments | not (T.null comments)]
 
 data BookCategory = WantToRead | CurrentlyReading | Read
 

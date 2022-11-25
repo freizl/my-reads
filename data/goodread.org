@@ -1,6 +1,7 @@
 ** DONE [#3] Deep Work: Rules for Focused Success in a Distracted World by Cal Newport
 - [[https://www.goodreads.com/book/show/25744928][goodread link]]
-- Inspirational! deep work tend to generate qualified result. <br/>Stay away from Social media which is engineered to be addictive.
+- Inspirational! deep work tend to generate qualified result.
+- Stay away from Social media which is engineered to be addictive.
 
 ** DONE [#5] A Guide to the Good Life: The Ancient Art of Stoic Joy by William B. Irvine
 CLOSED: [2022-04-13]
@@ -13,7 +14,8 @@ CLOSED: [2022-04-13]
 ** DONE [#3] The End of Dieting: How to Live for Life by Joel Fuhrman
 CLOSED: [2021-07-19]
 - [[https://www.goodreads.com/book/show/21873175][goodread link]]
-- The gist (research reports) is to eat mostly Plants (greens, beans, seeds etc) and less animal products (seafood included)<br/>BMI, body fat, visceral fat are all healthy facts.
+- The gist (research reports) is to eat mostly Plants (greens, beans, seeds etc) and less animal products (seafood included)
+- BMI, body fat, visceral fat are all healthy facts.
 
 ** DONE [#4] How to Take Smart Notes by Sönke Ahrens
 CLOSED: [2021-03-17]
@@ -44,12 +46,15 @@ CLOSED: [2020-02-12]
 ** DONE [#4] Prepared: What Kids Need for a Fulfilled Life by Diane Tavenner
 CLOSED: [2020-01-06]
 - [[https://www.goodreads.com/book/show/43422738][goodread link]]
-- Learn to be Parent and help children to grow to adult!<br/>I’m sold on the way Submit School preparing students!
+- Learn to be Parent and help children to grow to adult!
+- I’m sold on the way Submit School preparing students!
 
 ** DONE [#4] Poor Charlie's Almanack: The Wit and Wisdom of Charles T. Munger by Charles T. Munger
 CLOSED: [2019-12-24]
 - [[https://www.goodreads.com/book/show/944652][goodread link]]
-- Went through the book fairly quick. Lots of content, references of books & people.<br/>Didn’t understand most of talks regarding business.<br/>But even just last chapter on human misjudgment is fantastic.
+- Went through the book fairly quick. Lots of content, references of books & people.
+- Didn’t understand most of talks regarding business.
+- But even just last chapter on human misjudgment is fantastic.
 
 ** DONE [#5] Awareness: the Perils and Opportunities of Reality by Anthony de Mello
 - [[https://www.goodreads.com/book/show/11873059][goodread link]]
@@ -57,7 +62,8 @@ CLOSED: [2019-12-24]
 ** DONE [#5] Sapiens: A Brief History of Humankind by Yuval Noah Harari
 CLOSED: [2019-12-02]
 - [[https://www.goodreads.com/book/show/23692271][goodread link]]
-- Master piece! <br/>Lots of perspective from different point of views. The gist of Buddhism is awesome.
+- Master piece!
+- Lots of perspective from different point of views. The gist of Buddhism is awesome.
 
 ** DONE [#4] The Book of Monads: Master the theory and practice of monads, applied to solve real world problems by Alejandro Serrano Mena
 CLOSED: [2019-07-25]
@@ -75,7 +81,9 @@ CLOSED: [2019-09-30]
 
 ** DONE [#4] Daring Greatly: How the Courage to Be Vulnerable Transforms the Way We Live, Love, Parent, and Lead by Brené Brown
 - [[https://www.goodreads.com/book/show/13588356][goodread link]]
-- Just finished last chapter about parenting. Good reminder of engagement! Be sure understand Shame vs Guilt. Don’t think we or maybe just me got right understanding / education on it. The point is to love your own children no matter what and help them to grow to be a good person but not necessarily the one parents expected.<br/><br/>Feels like the whole book is about facing vulnerability and be brave & bold to enter arena! Not meant to fight with someone else but maybe yourself.
+- Just finished last chapter about parenting. Good reminder of engagement! Be sure understand Shame vs Guilt. Don’t think we or maybe just me got right understanding / education on it. The point is to love your own children no matter what and help them to grow to be a good person but not necessarily the one parents expected.
+- 
+- Feels like the whole book is about facing vulnerability and be brave & bold to enter arena! Not meant to fight with someone else but maybe yourself.
 
 ** DONE [#5] High Output Management by Andrew S. Grove
 CLOSED: [2019-07-03]
@@ -84,7 +92,9 @@ CLOSED: [2019-07-03]
 ** DONE [#5] High Performance Browser Networking by Ilya Grigorik
 CLOSED: [2019-07-02]
 - [[https://www.goodreads.com/book/show/17239305][goodread link]]
-- Certainly good to read and reference book! The web site is very colorful and more appealing.<br/>Many low level concepts for TCP/UDP/HTTP !<br/>Skip the mobile part though
+- Certainly good to read and reference book! The web site is very colorful and more appealing.
+- Many low level concepts for TCP/UDP/HTTP !
+- Skip the mobile part though
 
 ** DONE [#3] The Gardener and the Carpenter: What the New Science of Child Development Tells Us About the Relationship Between Parents and Children by Alison Gopnik
 CLOSED: [2019-06-05]
@@ -121,12 +131,15 @@ CLOSED: [2019-03-23]
 ** DONE [#4] Accelerate: Building and Scaling High Performing Technology Organizations by Nicole Forsgren
 CLOSED: [2019-03-22]
 - [[https://www.goodreads.com/book/show/35747076][goodread link]]
-- Leadership could be at any roles.<br/>Build machine / processes to allow feature team to be self-service-able and move with speed but high quality.
+- Leadership could be at any roles.
+- Build machine / processes to allow feature team to be self-service-able and move with speed but high quality.
 
 ** DONE [#3] How Full Is Your Bucket? by Tom Rath
 CLOSED: [2019-03-03]
 - [[https://www.goodreads.com/book/show/49266][goodread link]]
-- Simple concept and sometimes it’s just not simple to practice.<br/>Both things of the equation, Positive and Negative, are important and need to play properly.<br/>It’s big reminder that how emotions impact physical health!!
+- Simple concept and sometimes it’s just not simple to practice.
+- Both things of the equation, Positive and Negative, are important and need to play properly.
+- It’s big reminder that how emotions impact physical health!!
 
 ** DONE [#4] Unshakeable: Your Financial Freedom Playbook by Anthony Robbins
 CLOSED: [2019-03-02]
@@ -135,7 +148,8 @@ CLOSED: [2019-03-02]
 ** DONE [#5] Astrophysics for People in a Hurry by Neil deGrasse Tyson
 CLOSED: [2019-02-23]
 - [[https://www.goodreads.com/book/show/32191710][goodread link]]
-- Cosmic perspective and never be too humble!<br/>The small (elements) world are fabulous!!
+- Cosmic perspective and never be too humble!
+- The small (elements) world are fabulous!!
 
 ** DONE [#3] Thinking Functionally with Haskell by Richard S. Bird
 - [[https://www.goodreads.com/book/show/22829625][goodread link]]
@@ -175,7 +189,8 @@ CLOSED: [2018-12-29]
 ** DONE [#4] Blueprint: How DNA Makes Us Who We Are by Robert Plomin
 CLOSED: [2018-12-24]
 - [[https://www.goodreads.com/book/show/39644220][goodread link]]
-- DNA is just amazing. How comes such bio stuff?!<br/>Encourage self understanding!
+- DNA is just amazing. How comes such bio stuff?!
+- Encourage self understanding!
 
 ** DONE [#4] The Innovator's Dilemma: The Revolutionary Book that Will Change the Way You Do Business by Clayton M. Christensen
 - [[https://www.goodreads.com/book/show/2615][goodread link]]
@@ -202,7 +217,9 @@ CLOSED: [2015-02-01]
 ** DONE [#4] No-Drama Discipline: The Whole-Brain Way to Calm the Chaos and Nurture Your Child's Developing Mind by Daniel J. Siegel
 CLOSED: [2018-12-15]
 - [[https://www.goodreads.com/book/show/30519338][goodread link]]
-- Discipline is about teaching!<br/>Although there isn’t no one-size-for-all rule, I think empathy/compassion/love is and others are all strategies.<br/>If I had made so many mistakes during work, I got died million of times.
+- Discipline is about teaching!
+- Although there isn’t no one-size-for-all rule, I think empathy/compassion/love is and others are all strategies.
+- If I had made so many mistakes during work, I got died million of times.
 
 ** DONE [#5] Hold On to Your Kids: Why Parents Need to Matter More Than Peers by Gordon Neufeld
 - [[https://www.goodreads.com/book/show/106744][goodread link]]
@@ -216,12 +233,17 @@ CLOSED: [2018-12-15]
 ** DONE [#3] The Meaning of It All: Thoughts of a Citizen-Scientist by Richard P. Feynman
 CLOSED: [2018-12-18]
 - [[https://www.goodreads.com/book/show/1672320][goodread link]]
-- Deeper and critical thinking!<br/>I’m not necessarily understanding many actually given the speaking language.
+- Deeper and critical thinking!
+- I’m not necessarily understanding many actually given the speaking language.
 
 ** DONE [#4] Principles: Life and Work by Ray Dalio
 CLOSED: [2018-12-06]
 - [[https://www.goodreads.com/book/show/34536488][goodread link]]
-- An idea meritocracy wins almost all the time!<br/>Excellent people and community.<br/>Reflection!<br/>Deep thinking!<br/>High level picture!
+- An idea meritocracy wins almost all the time!
+- Excellent people and community.
+- Reflection!
+- Deep thinking!
+- High level picture!
 
 ** DONE [#5] Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think by Hans Rosling
 CLOSED: [2018-11-09]

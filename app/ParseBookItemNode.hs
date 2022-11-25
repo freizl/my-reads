@@ -51,7 +51,7 @@ parseItemShow = undefined
 parseItemHide = undefined
 
 filterTree :: (a -> Bool) -> Tree a -> [a]
-filterTree f = foldTree (\t ts -> ( if f t then [t] else []  ) ++ concat ts)
+filterTree f = foldTree (\t ts -> [t | f t] ++ concat ts)
 
 getData = do
   let fname = "./data/read-1.html"

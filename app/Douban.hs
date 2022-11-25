@@ -1,6 +1,4 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TypeApplications #-}
 
 module Main where
@@ -99,11 +97,11 @@ parseTitleSection :: [Tree Token] -> Either Text (Url, Text)
 parseTitleSection [] = Left "expects title section but got nothing"
 parseTitleSection (x : _) =
   let ys = subForest x
-   in if (length ys == 3)
+   in if length ys == 3
         then
           let linkEl = ys !! 1
               linkToken = rootLabel linkEl
-              titleContent = rootLabel ((subForest linkEl) !! 0)
+              titleContent = rootLabel (head (subForest linkEl))
            in (,)
                 <$> ( case linkToken of
                         TagOpen "a" attrs -> Right $ head $ [T.unpack av | Attr an av <- attrs, an == "href"]
@@ -118,14 +116,14 @@ parseTitleSection (x : _) =
 parseDateSection :: [Tree Token] -> Either Text (Maybe Int, Text)
 parseDateSection [] = Left "expects date section but none"
 parseDateSection (x : _) =
-  if length (subForest x) == 0
+  if null (subForest x)
     then Left "date section has no children"
     else
       let ys = subForest x
           (mRatingToken, dateToken) =
             if length ys == 3
               then (Just (rootLabel (ys !! 1)), rootLabel (ys !! 2))
-              else (Nothing, rootLabel (ys !! 0))
+              else (Nothing, rootLabel (head ys))
        in (,)
             <$> ( case mRatingToken of
                     Just ratingToken -> second Just $ case ratingToken of
@@ -149,7 +147,7 @@ parseItemHide (x : _) =
   parseGridDate :: [Tree Token] -> Either Text Text
   parseGridDate [] = Left "expects grid-date but none"
   parseGridDate (x1 : _) =
-    let introEl = (subForest x1) !! 1
+    let introEl = subForest x1 !! 1
      in case subForest introEl of
           [Node (ContentText t) _] -> Right $ T.strip $ head $ T.splitOn "/" t
           _ -> Left "no intro found"
@@ -162,6 +160,6 @@ parseItemHide (x : _) =
 
 -- | parse string "rating5-t"
 parseRatingString :: Text -> Either Text Int
-parseRatingString t = case (take 1 $ drop 6 $ T.unpack t) of
+parseRatingString t = case take 1 $ drop 6 $ T.unpack t of
   [x] -> if isDigit x then Right (read [x]) else Left (T.pack $ "unable to parse char " <> [x])
   _ -> Left ("not known rating string " <> t)

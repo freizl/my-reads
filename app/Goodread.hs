@@ -8,7 +8,8 @@ import Control.Applicative
 import Data.ByteString.Lazy qualified as BSL
 import Data.Char
 import Data.Csv
-import Data.Either
+
+-- import Data.Either
 import Data.ISBN
 import Data.Maybe
 import Data.Text (Text)
@@ -114,7 +115,7 @@ toOrgSection :: Book -> Text
 toOrgSection Book{..} =
     T.unlines $
         [ "** DONE "
-            <> (if myRating > 0 then "[#" <> (T.pack $ show myRating) <> "] " else "")
+            <> (if myRating > 0 then "[#" <> T.pack (show myRating) <> "] " else "")
             <> title
             <> " by "
             <> author
@@ -126,7 +127,7 @@ toOrgSection Book{..} =
             ++ [ "- " <> "[[https://www.goodreads.com/book/show/" <> bid <> "][goodread link]]"
                ]
             ++ ( case myReview of
-                    Just c -> ["- " <> c]
+                    Just comments -> ["- " <> T.strip c | c <- T.splitOn "<br/>" comments]
                     Nothing -> []
                )
 
@@ -139,8 +140,7 @@ main = do
         Right (_, books) -> do
             -- playWithBooks books
             generateOrgFile $
-                V.filter ((== Just "read") . exclusiveShelf) $
-                    books
+                V.filter ((== Just "read") . exclusiveShelf) books
 
 generateOrgFile :: Vector Book -> IO ()
 generateOrgFile bs =
@@ -155,10 +155,4 @@ playWithBooks bs = do
     V.mapM_ pPrint $
         V.take 2 $
             V.filter (isJust . myReview) $
-                V.filter ((== Just "read") . exclusiveShelf) $
-                    bs
-
--- read book
--- V.mapM_ pPrint $
---     V.filter ((== Just "read") . exclusiveShelf) $
---         bs
+                V.filter ((== Just "read") . exclusiveShelf) bs
