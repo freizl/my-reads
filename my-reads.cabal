@@ -40,11 +40,14 @@ common shared-prop
     , pretty-simple  ^>=4.1.1
     , text           ^>=1.2.4
     , aeson          ^>= 2.1
+    , lens           ^>= 5.2
 
   default-language:   Haskell2010
   default-extensions:
     ImportQualifiedPost
     OverloadedStrings
+    RecordWildCards
+    TupleSections
 
 executable crawl-douban
   import:         shared-prop
@@ -54,7 +57,17 @@ executable crawl-douban
   other-modules:
     Data.Tree.Ext
     Text.HTML.Utils
+    Download
+    Utils
+    Types
+    HtmlToken
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
   hs-source-dirs: app
+  ghc-options:
+    -Wall -Wtabs
+    -Wno-unused-do-bind
+    -Wunused-packages
+    -Wpartial-fields
+    -Wwarnings-deprecations

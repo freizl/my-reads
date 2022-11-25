@@ -1,11 +1,13 @@
 #+title: TODO
 
-* Douban [3/7]
+* Douban [7/8]
 1. [X] project set up
 2. [X] parse HTML response
 3. [X] crawl douban
-4. [ ] deal with utf8
-5. [ ] datatype to represent Book History
+4. [X] deal with utf8
+   - BS and Text library already handle it properly
+   - It is just ~print~ function that isn't able to produce utf8 to stdout.
+5. [X] datatype to represent Book History
    #+begin_src haskell
 data Book = Book
   { name :: Text
@@ -15,14 +17,14 @@ data Book = Book
   , category :: BookCategory
  }
    #+end_src
-6. [ ] idempotent for crawl
+6. [X] idempotent for crawl
    + check the total size of book list. if it is same, assume it is done already.
 7. [ ] Shall I deal with book images?
    + image is at book detail page, which implies N extra requests hence may hit rate limit.
    + also how to store image?
      - original link, implies bunch of image loading request when display book list eventually
      - blob in DB or local. a bit heavy.
-8. [ ] tags
+8. [X] tags
    - this is context for authenticated user unfortunately.
 
 * Goodreads
