@@ -36,10 +36,10 @@ main = do
     _ -> error "Unsupported command"
 
 jsonFile :: FilePath
-jsonFile = "./data/read.json"
+jsonFile = "./data/douban-read.json"
 
 orgFile :: FilePath
-orgFile = "./data/read.org"
+orgFile = "./data/douban-read.org"
 
 generateOrgFile :: IO ()
 generateOrgFile = do

@@ -1,0 +1,281 @@
+** DONE Deep Work: Rules for Focused Success in a Distracted World by Cal Newport
+- [[https://www.goodreads.com/book/show/25744928][goodread link]]
+- Inspirational! deep work tend to generate qualified result. <br/>Stay away from Social media which is engineered to be addictive.
+
+** DONE A Guide to the Good Life: The Ancient Art of Stoic Joy by William B. Irvine
+CLOSED: [2022-04-13]
+- [[https://www.goodreads.com/book/show/5617966][goodread link]]
+
+** DONE No Sweat: How the Simple Science of Motivation Can Bring You a Lifetime of Fitness by Michelle Segar
+- [[https://www.goodreads.com/book/show/23875809][goodread link]]
+- Keep active! Any activities counts.
+
+** DONE The End of Dieting: How to Live for Life by Joel Fuhrman
+CLOSED: [2021-07-19]
+- [[https://www.goodreads.com/book/show/21873175][goodread link]]
+- The gist (research reports) is to eat mostly Plants (greens, beans, seeds etc) and less animal products (seafood included)<br/>BMI, body fat, visceral fat are all healthy facts.
+
+** DONE How to Take Smart Notes by Sönke Ahrens
+CLOSED: [2021-03-17]
+- [[https://www.goodreads.com/book/show/34576082][goodread link]]
+- Need focusing and elaborate while reading; try to understand instead of scanning text; bring questions.
+
+** DONE Radical Candor: Be a Kickass Boss Without Losing Your Humanity by Kim Malone Scott
+CLOSED: [2021-01-08]
+- [[https://www.goodreads.com/book/show/29939161][goodread link]]
+
+** DONE Sapiens: A Graphic History, Volume 1 - The Birth of Humankind by David Vandermeulen
+CLOSED: [2020-12-17]
+- [[https://www.goodreads.com/book/show/54110137][goodread link]]
+
+** DONE Why Nations Fail: The Origins of Power, Prosperity, and Poverty by Daron Acemoğlu
+CLOSED: [2020-03-29]
+- [[https://www.goodreads.com/book/show/12158480][goodread link]]
+- The core theory is inclusive policy and economy can generate sustainable growth nation wide. But maybe too many examples and some redundancy at emphasizing the Theory.
+
+** DONE Successful Aging: A Neuroscientist Explores the Power and Potential of Our Lives by Daniel J. Levitin
+CLOSED: [2020-02-24]
+- [[https://www.goodreads.com/book/show/46114266][goodread link]]
+
+** DONE The Implementation Of Functional Programming Languages by Simon L. Peyton Jones
+CLOSED: [2020-02-12]
+- [[https://www.goodreads.com/book/show/3652866][goodread link]]
+
+** DONE Prepared: What Kids Need for a Fulfilled Life by Diane Tavenner
+CLOSED: [2020-01-06]
+- [[https://www.goodreads.com/book/show/43422738][goodread link]]
+- Learn to be Parent and help children to grow to adult!<br/>I’m sold on the way Submit School preparing students!
+
+** DONE Poor Charlie's Almanack: The Wit and Wisdom of Charles T. Munger by Charles T. Munger
+CLOSED: [2019-12-24]
+- [[https://www.goodreads.com/book/show/944652][goodread link]]
+- Went through the book fairly quick. Lots of content, references of books & people.<br/>Didn’t understand most of talks regarding business.<br/>But even just last chapter on human misjudgment is fantastic.
+
+** DONE Awareness: the Perils and Opportunities of Reality by Anthony de Mello
+- [[https://www.goodreads.com/book/show/11873059][goodread link]]
+
+** DONE Sapiens: A Brief History of Humankind by Yuval Noah Harari
+CLOSED: [2019-12-02]
+- [[https://www.goodreads.com/book/show/23692271][goodread link]]
+- Master piece! <br/>Lots of perspective from different point of views. The gist of Buddhism is awesome.
+
+** DONE The Book of Monads: Master the theory and practice of monads, applied to solve real world problems by Alejandro Serrano Mena
+CLOSED: [2019-07-25]
+- [[https://www.goodreads.com/book/show/42449863][goodread link]]
+
+** DONE How to Read a Book: The Classic Guide to Intelligent Reading by Mortimer J. Adler
+CLOSED: [2019-10-02]
+- [[https://www.goodreads.com/book/show/567610][goodread link]]
+- Wish I could learn more those techniques earlier when learning read.
+
+** DONE How to Live Longer and Feel Better by Linus Pauling
+CLOSED: [2019-09-30]
+- [[https://www.goodreads.com/book/show/92074][goodread link]]
+- Key take way is Vitamin supplement are VERY important even may not as important as author described (some of them are seem not approved even today like it could cure cold). But as it said how body works from molecules level, I’m pretty much convinced.
+
+** DONE Daring Greatly: How the Courage to Be Vulnerable Transforms the Way We Live, Love, Parent, and Lead by Brené Brown
+- [[https://www.goodreads.com/book/show/13588356][goodread link]]
+- Just finished last chapter about parenting. Good reminder of engagement! Be sure understand Shame vs Guilt. Don’t think we or maybe just me got right understanding / education on it. The point is to love your own children no matter what and help them to grow to be a good person but not necessarily the one parents expected.<br/><br/>Feels like the whole book is about facing vulnerability and be brave & bold to enter arena! Not meant to fight with someone else but maybe yourself.
+
+** DONE High Output Management by Andrew S. Grove
+CLOSED: [2019-07-03]
+- [[https://www.goodreads.com/book/show/324750][goodread link]]
+
+** DONE High Performance Browser Networking by Ilya Grigorik
+CLOSED: [2019-07-02]
+- [[https://www.goodreads.com/book/show/17239305][goodread link]]
+- Certainly good to read and reference book! The web site is very colorful and more appealing.<br/>Many low level concepts for TCP/UDP/HTTP !<br/>Skip the mobile part though
+
+** DONE The Gardener and the Carpenter: What the New Science of Child Development Tells Us About the Relationship Between Parents and Children by Alison Gopnik
+CLOSED: [2019-06-05]
+- [[https://www.goodreads.com/book/show/31450655][goodread link]]
+- Didn’t quite catch what are new science. The arguments about new tech are interesting and might lead unambiguous IMHO. (E.g. Shall we give iPad without controlling whatever they do?)
+
+** DONE Outer Order, Inner Calm: Declutter & Organize to Make More Room for Happiness by Gretchen Rubin
+CLOSED: [2019-06-05]
+- [[https://www.goodreads.com/book/show/43332956][goodread link]]
+- Really many common sense and redundant information. Isn’t worth to be a book but blog post
+
+** DONE Why We Sleep: Unlocking the Power of Sleep and Dreams by Matthew Walker
+CLOSED: [2019-06-03]
+- [[https://www.goodreads.com/book/show/34466963][goodread link]]
+
+** DONE The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns by John C. Bogle
+CLOSED: [2019-04-14]
+- [[https://www.goodreads.com/book/show/171127][goodread link]]
+- Basically Index Fund/passive investment wins forever in long run!
+
+** DONE Trillion Dollar Coach: The Leadership Playbook of Silicon Valley's Bill Campbell by Eric Schmidt
+CLOSED: [2019-05-07]
+- [[https://www.goodreads.com/book/show/42118073][goodread link]]
+- Many are seems very personal to Bill himself but some general principles are superb.
+
+** DONE Educated by Tara Westover
+CLOSED: [2019-04-25]
+- [[https://www.goodreads.com/book/show/35133922][goodread link]]
+
+** DONE Let My People Go Surfing: The Education of a Reluctant Businessman--Including 10 More Years of Business Unusual by Yvon Chouinard
+CLOSED: [2019-03-23]
+- [[https://www.goodreads.com/book/show/28251230][goodread link]]
+
+** DONE Accelerate: Building and Scaling High Performing Technology Organizations by Nicole Forsgren
+CLOSED: [2019-03-22]
+- [[https://www.goodreads.com/book/show/35747076][goodread link]]
+- Leadership could be at any roles.<br/>Build machine / processes to allow feature team to be self-service-able and move with speed but high quality.
+
+** DONE How Full Is Your Bucket? by Tom Rath
+CLOSED: [2019-03-03]
+- [[https://www.goodreads.com/book/show/49266][goodread link]]
+- Simple concept and sometimes it’s just not simple to practice.<br/>Both things of the equation, Positive and Negative, are important and need to play properly.<br/>It’s big reminder that how emotions impact physical health!!
+
+** DONE Unshakeable: Your Financial Freedom Playbook by Anthony Robbins
+CLOSED: [2019-03-02]
+- [[https://www.goodreads.com/book/show/40885164][goodread link]]
+
+** DONE Astrophysics for People in a Hurry by Neil deGrasse Tyson
+CLOSED: [2019-02-23]
+- [[https://www.goodreads.com/book/show/32191710][goodread link]]
+- Cosmic perspective and never be too humble!<br/>The small (elements) world are fabulous!!
+
+** DONE Thinking Functionally with Haskell by Richard S. Bird
+- [[https://www.goodreads.com/book/show/22829625][goodread link]]
+
+** DONE The Gene: An Intimate History by Siddhartha Mukherjee
+CLOSED: [2019-02-15]
+- [[https://www.goodreads.com/book/show/27276428][goodread link]]
+
+** DONE The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing by Marie Kondō
+CLOSED: [2019-02-02]
+- [[https://www.goodreads.com/book/show/22318578][goodread link]]
+
+** DONE Refactoring: Improving the Design of Existing Code by Martin Fowler
+CLOSED: [2019-01-20]
+- [[https://www.goodreads.com/book/show/35135772][goodread link]]
+- Didn’t have too much update since 1st edition and many of tips seem too verbose/detailed.
+
+** DONE Zen Mind, Beginner's Mind: Informal Talks on Zen Meditation and Practice by Shunryu Suzuki
+CLOSED: [2019-01-13]
+- [[https://www.goodreads.com/book/show/238758][goodread link]]
+
+** DONE The Selfish Gene by Richard Dawkins
+CLOSED: [2019-01-06]
+- [[https://www.goodreads.com/book/show/61535][goodread link]]
+
+** DONE Animal Farm by George Orwell
+CLOSED: [2019-01-06]
+- [[https://www.goodreads.com/book/show/412836][goodread link]]
+
+** DONE River Out of Eden: A Darwinian View of Life by Richard Dawkins
+- [[https://www.goodreads.com/book/show/32275][goodread link]]
+
+** DONE The Whole-Brain Child: 12 Revolutionary Strategies to Nurture Your Child's Developing Mind, Survive Everyday Parenting Struggles, and Help Your Family Thrive by Daniel J. Siegel
+CLOSED: [2018-12-29]
+- [[https://www.goodreads.com/book/show/10353369][goodread link]]
+
+** DONE Blueprint: How DNA Makes Us Who We Are by Robert Plomin
+CLOSED: [2018-12-24]
+- [[https://www.goodreads.com/book/show/39644220][goodread link]]
+- DNA is just amazing. How comes such bio stuff?!<br/>Encourage self understanding!
+
+** DONE The Innovator's Dilemma: The Revolutionary Book that Will Change the Way You Do Business by Clayton M. Christensen
+- [[https://www.goodreads.com/book/show/2615][goodread link]]
+
+** DONE The Innovators: How a Group of Hackers, Geniuses and Geeks Created the Digital Revolution by Walter Isaacson
+- [[https://www.goodreads.com/book/show/21856367][goodread link]]
+
+** DONE Quiet: The Power of Introverts in a World That Can't Stop Talking by Susan Cain
+- [[https://www.goodreads.com/book/show/8520610][goodread link]]
+
+** DONE Hit Refresh: The Quest to Rediscover Microsoft's Soul and Imagine a Better Future for Everyone by Satya Nadella
+- [[https://www.goodreads.com/book/show/35953819][goodread link]]
+
+** DONE High Performance JavaScript by Nicholas C. Zakas
+CLOSED: [2015-02-01]
+- [[https://www.goodreads.com/book/show/7008656][goodread link]]
+
+** DONE The Wright Brothers by David McCullough
+- [[https://www.goodreads.com/book/show/22609391][goodread link]]
+
+** DONE The Alchemist by Paulo Coelho
+- [[https://www.goodreads.com/book/show/18144590][goodread link]]
+
+** DONE No-Drama Discipline: The Whole-Brain Way to Calm the Chaos and Nurture Your Child's Developing Mind by Daniel J. Siegel
+CLOSED: [2018-12-15]
+- [[https://www.goodreads.com/book/show/30519338][goodread link]]
+- Discipline is about teaching!<br/>Although there isn’t no one-size-for-all rule, I think empathy/compassion/love is and others are all strategies.<br/>If I had made so many mistakes during work, I got died million of times.
+
+** DONE Hold On to Your Kids: Why Parents Need to Matter More Than Peers by Gordon Neufeld
+- [[https://www.goodreads.com/book/show/106744][goodread link]]
+
+** DONE How to Talk So Kids Will Listen & Listen So Kids Will Talk by Adele Faber
+- [[https://www.goodreads.com/book/show/769016][goodread link]]
+
+** DONE The Magic Years: Understanding & Handling the Problems of Early Childhood by Selma H. Fraiberg
+- [[https://www.goodreads.com/book/show/276433][goodread link]]
+
+** DONE The Meaning of It All: Thoughts of a Citizen-Scientist by Richard P. Feynman
+CLOSED: [2018-12-18]
+- [[https://www.goodreads.com/book/show/1672320][goodread link]]
+- Deeper and critical thinking!<br/>I’m not necessarily understanding many actually given the speaking language.
+
+** DONE Principles: Life and Work by Ray Dalio
+CLOSED: [2018-12-06]
+- [[https://www.goodreads.com/book/show/34536488][goodread link]]
+- An idea meritocracy wins almost all the time!<br/>Excellent people and community.<br/>Reflection!<br/>Deep thinking!<br/>High level picture!
+
+** DONE Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think by Hans Rosling
+CLOSED: [2018-11-09]
+- [[https://www.goodreads.com/book/show/36185976][goodread link]]
+
+** DONE Transcendence: Healing and Transformation Through Transcendental Meditation by Norman E. Rosenthal
+CLOSED: [2018-10-31]
+- [[https://www.goodreads.com/book/show/13542520][goodread link]]
+
+** DONE Mindset: The New Psychology of Success by Carol S. Dweck
+- [[https://www.goodreads.com/book/show/1307582][goodread link]]
+
+** DONE Love and Math: The Heart of Hidden Reality by Edward Frenkel
+- [[https://www.goodreads.com/book/show/18747254][goodread link]]
+
+** DONE Types and Programming Languages by Benjamin C. Pierce
+- [[https://www.goodreads.com/book/show/20363346][goodread link]]
+
+** DONE In Code: A Mathematical Journey by Sarah Flannery
+- [[https://www.goodreads.com/book/show/1237955][goodread link]]
+
+** DONE The Four Agreements: A Practical Guide to Personal Freedom by Miguel Ruiz
+- [[https://www.goodreads.com/book/show/386482][goodread link]]
+
+** DONE The Book of Joy: Lasting Happiness in a Changing World by Dalai Lama XIV
+- [[https://www.goodreads.com/book/show/29496453][goodread link]]
+
+** DONE Man's Search for Meaning by Viktor E. Frankl
+- [[https://www.goodreads.com/book/show/4069][goodread link]]
+
+** DONE Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann
+- [[https://www.goodreads.com/book/show/23466395][goodread link]]
+
+** DONE The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers by Ben Horowitz
+- [[https://www.goodreads.com/book/show/18176747][goodread link]]
+
+** DONE "What Do You Care What Other People Think?": Further Adventures of a Curious Character by Richard P. Feynman
+- [[https://www.goodreads.com/book/show/35167718][goodread link]]
+
+** DONE Moonwalking with Einstein: The Art and Science of Remembering Everything by Joshua Foer
+- [[https://www.goodreads.com/book/show/6346975][goodread link]]
+
+** DONE Thinking, Fast and Slow by Daniel Kahneman
+- [[https://www.goodreads.com/book/show/11468377][goodread link]]
+
+** DONE What If? Serious Scientific Answers to Absurd Hypothetical Questions (What If?, #1) by Randall Munroe
+- [[https://www.goodreads.com/book/show/21413662][goodread link]]
+
+** DONE Fermat's Enigma by Simon Singh
+- [[https://www.goodreads.com/book/show/38412][goodread link]]
+
+** DONE Surely You're Joking, Mr. Feynman!: Adventures of a Curious Character by Richard P. Feynman
+- [[https://www.goodreads.com/book/show/5544][goodread link]]
+
+** DONE Grit: The Power of Passion and Perseverance by Angela Duckworth
+- [[https://www.goodreads.com/book/show/27213329][goodread link]]
+
