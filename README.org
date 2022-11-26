@@ -1,10 +1,7 @@
-* POC my-reads
+* Introduction
 
-Capture by reading history
+Capture by reading history in plain text (org-mode)
 
-* Notes
-
-1. ~cabal-fmt~ to format cabal
-
-* Links
-- [[https://book.douban.com/people/freizl/collect?start=30&sort=time&rating=all&filter=all&mode=list][my douban reading list]]
+* My reading list
+- [[https://book.douban.com/people/freizl/collect?start=30&sort=time&rating=all&filter=all&mode=list][Douban]]
+- [[https://www.goodreads.com/review/list/63779374-simon?shelf=read][Goodread]]
