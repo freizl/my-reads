@@ -21,6 +21,7 @@ import System.Directory
 import System.Environment
 import System.Exit
 import Text.Pretty.Simple
+import OrgMode
 
 main :: IO ()
 main = do
@@ -42,7 +43,9 @@ generateOrgFile = do
   eBookRead <- eitherDecodeFileStrict' @[BookRead] jsonFile
   case eBookRead of
     Left err -> print err
-    Right books -> T.writeFile orgFile $ T.unlines (map toOrgSection books)
+    Right books -> T.writeFile orgFile
+      $ T.unlines
+      $ map ( toDisplay . toOrgModeNode ) books
 
 processFile :: PageNum -> [Either (Text, Tree Token) BookRead] -> IO ()
 processFile pnum results = do

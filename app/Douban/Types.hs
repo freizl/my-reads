@@ -9,6 +9,7 @@ import Data.Aeson
 import Data.Text (Text)
 import Data.Text qualified as T
 import GHC.Generics
+import OrgMode
 
 type Url = String
 
@@ -31,23 +32,19 @@ instance FromJSON BookRead
 
 instance ToJSON BookRead
 
-toOrgSection :: BookRead -> Text
-toOrgSection BookRead{..} =
-  T.unlines $
-    [ "** DONE "
-        <> ( case rating of
-              Just r -> "[#" <> T.pack (show r) <> "] "
-              Nothing -> ""
-           )
-        <> title
-        <> " by "
-        <> author
-    , "CLOSED: ["
-        <> readAt
-        <> "]"
-    , "- " <> "[[" <> T.pack detailPage <> "][douban link]]"
-    ]
-      ++ ["- " <> comments | not (T.null comments)]
+toOrgModeNode :: BookRead -> OrgModeNode
+toOrgModeNode BookRead{..} =
+  OrgModeNode
+    { header = H2
+    , todoStatus = Done
+    , title = title <> " by " <> author
+    , priority = fmap (Priority . T.pack . show) rating
+    , tags = [] -- \^ unable to obtain tags
+    , closedAt = Just readAt
+    , contents =
+        ["[[" <> T.pack detailPage <> "][douban link]]"]
+          ++ [comments | not (T.null comments)]
+    }
 
 toPathParam :: BookCategory -> String
 toPathParam WantToRead = "with"

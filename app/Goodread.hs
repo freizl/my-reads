@@ -8,8 +8,6 @@ import Control.Applicative
 import Data.ByteString.Lazy qualified as BSL
 import Data.Char
 import Data.Csv
-
--- import Data.Either
 import Data.ISBN
 import Data.Maybe
 import Data.Text (Text)
@@ -18,6 +16,7 @@ import Data.Text.Encoding qualified as T
 import Data.Text.IO qualified as T
 import Data.Vector (Vector)
 import Data.Vector qualified as V
+import OrgMode
 import Text.Pretty.Simple
 
 data Book = Book
@@ -113,26 +112,23 @@ instance FromNamedRecord Book where
 
 toOrgSection :: Book -> Text
 toOrgSection Book{..} =
-    T.unlines $
-        [ "** DONE "
-            <> (if myRating > 0 then "[#" <> T.pack (show myRating) <> "] " else "")
-            <> title
-            <> " by "
-            <> author
-            <> (case bookshelves of
-                  Just bs -> "   :" <> bs <> ":"
-                  Nothing -> "")
-        ]
-            ++ ( case dateRead of
-                    Just d -> ["CLOSED: [" <> T.replace "/" "-" d <> "]"]
-                    Nothing -> []
-               )
-            ++ [ "- " <> "[[https://www.goodreads.com/book/show/" <> bid <> "][goodread link]]"
-               ]
-            ++ ( case myReview of
-                    Just comments -> ["- " <> T.strip c | c <- T.splitOn "<br/>" comments]
-                    Nothing -> []
-               )
+    toDisplay $
+        OrgModeNode
+            { header = H2
+            , todoStatus = Done
+            , title = title <> " by " <> author
+            , priority = if myRating > 0 then (Just . Priority . T.pack . show $ myRating) else Nothing
+            , tags = case bookshelves of
+                Just t -> [t]
+                Nothing -> []
+            , closedAt = fmap (T.replace "/" "-") dateRead
+            , contents =
+                ["[[https://www.goodreads.com/book/show/" <> bid <> "][goodread link]]"]
+                    ++ ( case myReview of
+                            Just comments -> [T.strip c | c <- T.splitOn "<br/>" comments]
+                            Nothing -> []
+                       )
+            }
 
 main :: IO ()
 main = do
