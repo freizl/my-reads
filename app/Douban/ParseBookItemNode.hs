@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
-module ParseBookItemNode where
+module Douban.ParseBookItemNode where
 
 import Data.ByteString qualified as BS
 import Data.Either
@@ -91,7 +91,10 @@ isBookDateDiv = bySelector "div" "date"
 isGridDateDiv = bySelector "div" "grid-date"
 isCommentDiv = bySelector "div" "comment"
 
-bySelector :: TagName -> AttrValue -> Token -> Bool
+bySelector ::
+  TagName
+  -> AttrValue -- ^ CSS attr value
+  -> Token -> Bool
 bySelector tagName cssName t =
     t ^? (_TagOpen . _1) == Just tagName
         && anyOf (_TagOpen . _2 . traverse . _Attr) (hasClass cssName) t

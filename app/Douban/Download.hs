@@ -1,13 +1,13 @@
 -- |
 
-module Download where
+module Douban.Download where
 
 import Data.ByteString qualified as BS
 import Control.Concurrent
 import Network.HTTP.Simple
-import Types
-import Utils
-import HtmlToken
+import Douban.Types
+import Douban.Utils
+import Douban.HtmlToken
 import Data.String (fromString)
 
 crawlPage ::

@@ -74,11 +74,11 @@ executable douban
   -- Modules included in this executable, other than Main.
   other-modules:
     Data.Tree.Ext
-    Download
-    HtmlToken
     Text.HTML.Utils
-    Types
-    Utils
+    Douban.Download
+    Douban.HtmlToken
+    Douban.Types
+    Douban.Utils
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:

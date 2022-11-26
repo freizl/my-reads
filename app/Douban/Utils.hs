@@ -1,6 +1,7 @@
 -- |
 
-module Utils where
+module Douban.Utils where
+
 import Data.Text (Text)
 import Data.Text.Encoding qualified as T
 import Data.ByteString (ByteString)

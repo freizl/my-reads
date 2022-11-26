@@ -13,16 +13,16 @@ import Data.Text (Text)
 import Data.Text qualified as T
 import Data.Text.IO qualified as T
 import Data.Tree (Tree (..))
-import Download
-import HtmlToken
+import Douban.Download
+import Douban.HtmlToken
 import System.Directory
 import System.Environment
 import System.Exit
 import Text.HTML.Parser
 import Text.HTML.Tree
 import Text.Pretty.Simple
-import Types
-import Utils
+import Douban.Types
+import Douban.Utils
 
 main :: IO ()
 main = do

@@ -1,6 +1,6 @@
 -- |
 
-module HtmlToken where
+module Douban.HtmlToken where
 
 import Text.HTML.Parser
 import Text.HTML.Utils
