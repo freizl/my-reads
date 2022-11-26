@@ -90,7 +90,7 @@ CLOSED: [2018-07-19]
 CLOSED: [2018-07-19]
 - [[https://book.douban.com/subject/1902303/][douban link]]
 
-** DONE Between Parent and Child by Dr. Haim G Ginott
+** DONE [#4] Between Parent and Child by Dr. Haim G Ginott
 CLOSED: [2018-07-19]
 - [[https://book.douban.com/subject/1776302/][douban link]]
 
@@ -617,7 +617,7 @@ CLOSED: [2011-08-18]
 CLOSED: [2011-04-26]
 - [[https://book.douban.com/subject/1451622/][douban link]]
 
-** DONE Programming Pearls by Jon Bentley
+** DONE [#4] Programming Pearls by Jon Bentley
 CLOSED: [2011-04-26]
 - [[https://book.douban.com/subject/1484451/][douban link]]
 

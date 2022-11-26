@@ -10,6 +10,10 @@ import Data.Text (Text)
 import Data.Text qualified as T
 import GHC.Generics
 
+type Url = String
+
+data BookCategory = WantToRead | CurrentlyReading | Read
+
 newtype PageNum = PageNum {unPageNum :: Int}
   deriving newtype (Show, Num)
 
@@ -45,29 +49,17 @@ toOrgSection BookRead{..} =
     ]
       ++ ["- " <> comments | not (T.null comments)]
 
-data BookCategory = WantToRead | CurrentlyReading | Read
+toPathParam :: BookCategory -> String
+toPathParam WantToRead = "with"
+toPathParam CurrentlyReading = "do"
+toPathParam Read = "collect"
 
-toDoubanSubPath :: BookCategory -> String
-toDoubanSubPath WantToRead = "with"
-toDoubanSubPath CurrentlyReading = "do"
-toDoubanSubPath Read = "collect"
-
-type Url = String
-
-type UserCallSign = String
-
-baseUrl :: Url
-baseUrl = "https://book.douban.com/people/"
-
--- TODO: use Query type for query parameter given `start` require change for every request.
---
 targetUrl :: BookCategory -> PageNum -> Url
 targetUrl bookCategory pnum =
-  baseUrl
-    <> ("freizl" :: UserCallSign)
+  "https://book.douban.com/people/"
+    <> "freizl"
     <> "/"
-    <> toDoubanSubPath bookCategory
-    <> "?sort=time"
+    <> toPathParam bookCategory
+    <> "?sort=time&filter=all&mode=list&tags_sort=count"
     <> "&start="
     ++ show ((unPageNum pnum - 1) * 30)
-      <> "&filter=all&mode=list&tags_sort=count"

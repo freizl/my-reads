@@ -1,14 +1,31 @@
--- |
-
 module Douban.Download where
 
-import Data.ByteString qualified as BS
 import Control.Concurrent
-import Network.HTTP.Simple
+import Data.ByteString qualified as BS
+import Data.String (fromString)
+import Douban.HtmlToken
 import Douban.Types
 import Douban.Utils
-import Douban.HtmlToken
-import Data.String (fromString)
+import Text.HTML.Parser
+import Network.HTTP.Simple
+
+downloadAll :: IO ()
+downloadAll = downloadReadHistory 1
+
+downloadReadHistory :: PageNum -> IO ()
+downloadReadHistory pnum = do
+  putStrLn ("Process page " <> show pnum)
+  respBS <- crawlPage Read pnum
+  let allTokens = parseTokens $ bsToText respBS
+  let booklistBlock = getBookListBlock allTokens
+  let filename = "./data/read-" <> show pnum <> ".html"
+  if isEndOfPagination booklistBlock
+    then pure ()
+    else
+      BS.writeFile filename respBS
+        >> putStrLn ("write to " <> filename)
+        >> threadDelay (2 * 10 ^ (6 :: Int))
+        >> downloadReadHistory (pnum + 1)
 
 crawlPage ::
   BookCategory ->
@@ -32,22 +49,3 @@ addHeaders =
     -- Cookie is critical otherwise 403
     addRequestHeader "Cookie" "bid=JPTE-koPHbc;"
     . addRequestHeader "User-Agent" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:103.0) Gecko/20100101 Firefox/103.0"
-
-
-downloadAll :: IO ()
-downloadAll = downloadReadHistory 1
-
-downloadReadHistory :: PageNum -> IO ()
-downloadReadHistory pnum = do
-  putStrLn ("Process page " <> show pnum)
-  respBS <- crawlPage Read pnum
-  let allTokens = parseRespToTokens $ bsToText respBS
-  let booklistBlock = getBookListBlock allTokens
-  let filename = "./data/read-" <> show pnum <> ".html"
-  if isEndOfPagination booklistBlock
-    then pure ()
-    else
-      BS.writeFile filename respBS
-        >> putStrLn ("write to " <> filename)
-        >> threadDelay (2 * 10 ^ ( 6 :: Int ))
-        >> downloadReadHistory (pnum + 1)

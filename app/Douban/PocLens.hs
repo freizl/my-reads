@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
-module Douban.ParseBookItemNode where
+module Douban.PocLens where
 
 import Data.ByteString qualified as BS
 import Data.Either
