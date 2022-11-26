@@ -119,6 +119,9 @@ toOrgSection Book{..} =
             <> title
             <> " by "
             <> author
+            <> (case bookshelves of
+                  Just bs -> "   :" <> bs <> ":"
+                  Nothing -> "")
         ]
             ++ ( case dateRead of
                     Just d -> ["CLOSED: [" <> T.replace "/" "-" d <> "]"]

@@ -1,4 +1,4 @@
-** DONE [#3] Deep Work: Rules for Focused Success in a Distracted World by Cal Newport
+** DONE [#3] Deep Work: Rules for Focused Success in a Distracted World by Cal Newport   :self:
 - [[https://www.goodreads.com/book/show/25744928][goodread link]]
 - Inspirational! deep work tend to generate qualified result.
 - Stay away from Social media which is engineered to be addictive.
@@ -56,7 +56,7 @@ CLOSED: [2019-12-24]
 - Didn’t understand most of talks regarding business.
 - But even just last chapter on human misjudgment is fantastic.
 
-** DONE [#5] Awareness: the Perils and Opportunities of Reality by Anthony de Mello
+** DONE [#5] Awareness: the Perils and Opportunities of Reality by Anthony de Mello   :self:
 - [[https://www.goodreads.com/book/show/11873059][goodread link]]
 
 ** DONE [#5] Sapiens: A Brief History of Humankind by Yuval Noah Harari
@@ -74,7 +74,7 @@ CLOSED: [2019-10-02]
 - [[https://www.goodreads.com/book/show/567610][goodread link]]
 - Wish I could learn more those techniques earlier when learning read.
 
-** DONE [#3] How to Live Longer and Feel Better by Linus Pauling
+** DONE [#3] How to Live Longer and Feel Better by Linus Pauling   :self:
 CLOSED: [2019-09-30]
 - [[https://www.goodreads.com/book/show/92074][goodread link]]
 - Key take way is Vitamin supplement are VERY important even may not as important as author described (some of them are seem not approved even today like it could cure cold). But as it said how body works from molecules level, I’m pretty much convinced.
@@ -110,7 +110,7 @@ CLOSED: [2019-06-05]
 CLOSED: [2019-06-03]
 - [[https://www.goodreads.com/book/show/34466963][goodread link]]
 
-** DONE [#3] The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns by John C. Bogle
+** DONE [#3] The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns by John C. Bogle   :finance:
 CLOSED: [2019-04-14]
 - [[https://www.goodreads.com/book/show/171127][goodread link]]
 - Basically Index Fund/passive investment wins forever in long run!
@@ -128,30 +128,30 @@ CLOSED: [2019-04-25]
 CLOSED: [2019-03-23]
 - [[https://www.goodreads.com/book/show/28251230][goodread link]]
 
-** DONE [#4] Accelerate: Building and Scaling High Performing Technology Organizations by Nicole Forsgren
+** DONE [#4] Accelerate: Building and Scaling High Performing Technology Organizations by Nicole Forsgren   :science-tech:
 CLOSED: [2019-03-22]
 - [[https://www.goodreads.com/book/show/35747076][goodread link]]
 - Leadership could be at any roles.
 - Build machine / processes to allow feature team to be self-service-able and move with speed but high quality.
 
-** DONE [#3] How Full Is Your Bucket? by Tom Rath
+** DONE [#3] How Full Is Your Bucket? by Tom Rath   :business:
 CLOSED: [2019-03-03]
 - [[https://www.goodreads.com/book/show/49266][goodread link]]
 - Simple concept and sometimes it’s just not simple to practice.
 - Both things of the equation, Positive and Negative, are important and need to play properly.
 - It’s big reminder that how emotions impact physical health!!
 
-** DONE [#4] Unshakeable: Your Financial Freedom Playbook by Anthony Robbins
+** DONE [#4] Unshakeable: Your Financial Freedom Playbook by Anthony Robbins   :finance:
 CLOSED: [2019-03-02]
 - [[https://www.goodreads.com/book/show/40885164][goodread link]]
 
-** DONE [#5] Astrophysics for People in a Hurry by Neil deGrasse Tyson
+** DONE [#5] Astrophysics for People in a Hurry by Neil deGrasse Tyson   :science-tech:
 CLOSED: [2019-02-23]
 - [[https://www.goodreads.com/book/show/32191710][goodread link]]
 - Cosmic perspective and never be too humble!
 - The small (elements) world are fabulous!!
 
-** DONE [#3] Thinking Functionally with Haskell by Richard S. Bird
+** DONE [#3] Thinking Functionally with Haskell by Richard S. Bird   :programming:
 - [[https://www.goodreads.com/book/show/22829625][goodread link]]
 
 ** DONE [#4] The Gene: An Intimate History by Siddhartha Mukherjee
@@ -182,7 +182,7 @@ CLOSED: [2019-01-06]
 ** DONE [#3] River Out of Eden: A Darwinian View of Life by Richard Dawkins
 - [[https://www.goodreads.com/book/show/32275][goodread link]]
 
-** DONE [#4] The Whole-Brain Child: 12 Revolutionary Strategies to Nurture Your Child's Developing Mind, Survive Everyday Parenting Struggles, and Help Your Family Thrive by Daniel J. Siegel
+** DONE [#4] The Whole-Brain Child: 12 Revolutionary Strategies to Nurture Your Child's Developing Mind, Survive Everyday Parenting Struggles, and Help Your Family Thrive by Daniel J. Siegel   :parent-child:
 CLOSED: [2018-12-29]
 - [[https://www.goodreads.com/book/show/10353369][goodread link]]
 
@@ -198,7 +198,7 @@ CLOSED: [2018-12-24]
 ** DONE [#3] The Innovators: How a Group of Hackers, Geniuses and Geeks Created the Digital Revolution by Walter Isaacson
 - [[https://www.goodreads.com/book/show/21856367][goodread link]]
 
-** DONE [#4] Quiet: The Power of Introverts in a World That Can't Stop Talking by Susan Cain
+** DONE [#4] Quiet: The Power of Introverts in a World That Can't Stop Talking by Susan Cain   :self:
 - [[https://www.goodreads.com/book/show/8520610][goodread link]]
 
 ** DONE [#3] Hit Refresh: The Quest to Rediscover Microsoft's Soul and Imagine a Better Future for Everyone by Satya Nadella
@@ -208,26 +208,26 @@ CLOSED: [2018-12-24]
 CLOSED: [2015-02-01]
 - [[https://www.goodreads.com/book/show/7008656][goodread link]]
 
-** DONE [#5] The Wright Brothers by David McCullough
+** DONE [#5] The Wright Brothers by David McCullough   :bio-history:
 - [[https://www.goodreads.com/book/show/22609391][goodread link]]
 
-** DONE [#3] The Alchemist by Paulo Coelho
+** DONE [#3] The Alchemist by Paulo Coelho   :fiction:
 - [[https://www.goodreads.com/book/show/18144590][goodread link]]
 
-** DONE [#4] No-Drama Discipline: The Whole-Brain Way to Calm the Chaos and Nurture Your Child's Developing Mind by Daniel J. Siegel
+** DONE [#4] No-Drama Discipline: The Whole-Brain Way to Calm the Chaos and Nurture Your Child's Developing Mind by Daniel J. Siegel   :parent-child:
 CLOSED: [2018-12-15]
 - [[https://www.goodreads.com/book/show/30519338][goodread link]]
 - Discipline is about teaching!
 - Although there isn’t no one-size-for-all rule, I think empathy/compassion/love is and others are all strategies.
 - If I had made so many mistakes during work, I got died million of times.
 
-** DONE [#5] Hold On to Your Kids: Why Parents Need to Matter More Than Peers by Gordon Neufeld
+** DONE [#5] Hold On to Your Kids: Why Parents Need to Matter More Than Peers by Gordon Neufeld   :parent-child:
 - [[https://www.goodreads.com/book/show/106744][goodread link]]
 
-** DONE [#5] How to Talk So Kids Will Listen & Listen So Kids Will Talk by Adele Faber
+** DONE [#5] How to Talk So Kids Will Listen & Listen So Kids Will Talk by Adele Faber   :parent-child:
 - [[https://www.goodreads.com/book/show/769016][goodread link]]
 
-** DONE [#4] The Magic Years: Understanding & Handling the Problems of Early Childhood by Selma H. Fraiberg
+** DONE [#4] The Magic Years: Understanding & Handling the Problems of Early Childhood by Selma H. Fraiberg   :parent-child:
 - [[https://www.goodreads.com/book/show/276433][goodread link]]
 
 ** DONE [#3] The Meaning of It All: Thoughts of a Citizen-Scientist by Richard P. Feynman
@@ -256,10 +256,10 @@ CLOSED: [2018-10-31]
 ** DONE [#4] Mindset: The New Psychology of Success by Carol S. Dweck
 - [[https://www.goodreads.com/book/show/1307582][goodread link]]
 
-** DONE [#4] Love and Math: The Heart of Hidden Reality by Edward Frenkel
+** DONE [#4] Love and Math: The Heart of Hidden Reality by Edward Frenkel   :programming:
 - [[https://www.goodreads.com/book/show/18747254][goodread link]]
 
-** DONE [#5] Types and Programming Languages by Benjamin C. Pierce
+** DONE [#5] Types and Programming Languages by Benjamin C. Pierce   :programming:
 - [[https://www.goodreads.com/book/show/20363346][goodread link]]
 
 ** DONE [#4] In Code: A Mathematical Journey by Sarah Flannery
@@ -274,7 +274,7 @@ CLOSED: [2018-10-31]
 ** DONE [#5] Man's Search for Meaning by Viktor E. Frankl
 - [[https://www.goodreads.com/book/show/4069][goodread link]]
 
-** DONE [#5] Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann
+** DONE [#5] Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann   :programming:
 - [[https://www.goodreads.com/book/show/23466395][goodread link]]
 
 ** DONE [#4] The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers by Ben Horowitz
