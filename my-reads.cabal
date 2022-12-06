@@ -26,7 +26,6 @@ maintainer:         Haisheng Wu
 extra-source-files:
   CHANGELOG.org
   README.org
-  TODO.org
 
 -- https://cabal.readthedocs.io/en/latest/developing-packages.html#common-stanzas
 common shared-prop
